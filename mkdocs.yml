@@ -26,9 +26,6 @@ theme:
 nav:
   - Home: index.md
 
-extra_css:
-  - css/extra.css
-
 # Extensions
 markdown_extensions:
   - footnotes
@@ -59,13 +56,9 @@ plugins:
   - search
   - roamlinks
   - blog
-  - rss:
-      match_path: blog/posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
+
+extra_css:
+  - css/extra.css
 
 extra_javascript:
   - https://unpkg.com/mermaid/dist/mermaid.min.js 
