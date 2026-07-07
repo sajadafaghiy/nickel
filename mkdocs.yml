@@ -27,7 +27,7 @@ nav:
   - Home: index.md
 
 extra_css:
-  - css/site.css
+  - css/extra.css
 
 # Extensions
 markdown_extensions:
