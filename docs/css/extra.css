@@ -4,3 +4,8 @@ body {
     font-family: 'IRANSans';
     direction: rtl;
 }
+
+.md-typeset p {
+    text-align: justify;
+    hyphens: auto;
+}
