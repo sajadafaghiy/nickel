@@ -1,0 +1,6 @@
+@import url('../assets/fonts/fonts.css');
+
+body {
+    font-family: 'IRANSans';
+    direction: rtl;
+}

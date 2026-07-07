@@ -26,6 +26,9 @@ theme:
 nav:
   - Home: index.md
 
+extra_css:
+  - css/site.css
+
 # Extensions
 markdown_extensions:
   - footnotes
@@ -65,6 +68,4 @@ plugins:
         - tags
 
 extra_javascript:
-  - javascripts/mathjax.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/mermaid/dist/mermaid.min.js 
