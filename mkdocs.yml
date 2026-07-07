@@ -57,6 +57,12 @@ plugins:
   - roamlinks
   - blog
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourname/yourrepo
+  generator: false
+
 extra_css:
   - css/extra.css
 
