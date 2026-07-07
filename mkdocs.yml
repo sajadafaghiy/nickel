@@ -1,4 +1,4 @@
-site_name: Book Notes
+site_name: نیکل | خلاصه کتاب
 
 theme:
     name: material
@@ -23,8 +23,8 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
-nav:
-  - Home: index.md
+# nav:
+#   - Home: index.md
 
 # Extensions
 markdown_extensions:
