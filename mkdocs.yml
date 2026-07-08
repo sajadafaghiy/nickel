@@ -51,7 +51,7 @@ markdown_extensions:
 
 plugins:
   - literate-nav:
-      nav_file: summery.md
+      nav_file: SUMMARY.md
   - search
   - roamlinks
   - tags
