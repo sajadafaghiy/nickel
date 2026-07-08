@@ -5,10 +5,8 @@ theme:
     language: fa
     features:
       - navigation.top
-      - navigation.path
       - navigation.instant
       - navigation.instant.progress
-      - toc.integrate
 
     palette:
 
