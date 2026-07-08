@@ -28,13 +28,6 @@ nav:
   - Books: books
   - Tags: tags.md
 
-nav:
-  - getting-started.md 
-  - guides 
-  - More Resources: 
-    - "*" 
-    - MkDocs: https://mkdocs.org
-
 # Extensions
 markdown_extensions:
   - footnotes
@@ -64,7 +57,6 @@ markdown_extensions:
 plugins:
   - search
   - roamlinks
-  - blog
   - tags
   - awesome-nav
 
