@@ -25,9 +25,15 @@ theme:
 
 nav:
   - Home: index.md
-  - Books:
-      - books/
+  - Books: books
   - Tags: tags.md
+
+nav:
+  - getting-started.md 
+  - guides 
+  - More Resources: 
+    - "*" 
+    - MkDocs: https://mkdocs.org
 
 # Extensions
 markdown_extensions:
@@ -60,6 +66,7 @@ plugins:
   - roamlinks
   - blog
   - tags
+  - awesome-nav
 
 extra:
   social:
