@@ -24,10 +24,10 @@ theme:
         name: Switch to light mode
 
 nav:
-  - خانه: index.md
-  - کتاب‌ها:
+  - Home: index.md
+  - Books:
       - books/
-  - تگ‌ها: tags.md
+  - Tags: tags.md
 
 # Extensions
 markdown_extensions:
