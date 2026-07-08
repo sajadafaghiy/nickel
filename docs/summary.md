@@ -1,5 +1,5 @@
 * [Home](index.md)
-* Books
+* کتاب‌ها
     * books/*.md
 * [Tags](tags.md)
 * [Test](tags.md)
