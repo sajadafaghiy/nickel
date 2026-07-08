@@ -3,6 +3,13 @@ site_name: نیکل | خلاصه کتاب
 theme:
     name: material
     language: fa
+    features:
+      - navigation.top
+      - navigation.path
+      - navigation.instant
+      - navigation.instant.progress
+      - toc.integrate
+
     palette:
 
     # Palette toggle for automatic mode
