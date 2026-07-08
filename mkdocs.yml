@@ -9,6 +9,7 @@ theme:
       - navigation.instant
       - navigation.instant.progress
       - toc.follow
+      - content.tooltips
 
     palette:
 
@@ -38,8 +39,10 @@ theme:
 
 # Extensions
 markdown_extensions:
+  - abbr
   - footnotes
   - attr_list
+  - pymdownx.snippets
   - pymdownx.arithmatex:
       generic: true
   # - pymdownx.superfences
