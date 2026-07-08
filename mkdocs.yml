@@ -23,11 +23,6 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
-nav:
-  - Home: index.md
-  - Books: books
-  - Tags: tags.md
-
 # Extensions
 markdown_extensions:
   - footnotes
@@ -55,10 +50,11 @@ markdown_extensions:
       permalink: true
 
 plugins:
+  - literate-nav:
+      nav_file: summery.md
   - search
   - roamlinks
   - tags
-  - awesome-nav
 
 extra:
   social:
