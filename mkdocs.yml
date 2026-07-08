@@ -5,8 +5,10 @@ theme:
     language: fa
     features:
       - navigation.top
+      - navigation.tracking
       - navigation.instant
       - navigation.instant.progress
+      - toc.follow
 
     palette:
 

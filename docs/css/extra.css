@@ -9,3 +9,15 @@ body {
     text-align: justify;
     hyphens: auto;
 }
+
+.md-tag {
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.md-tag:hover {
+  transform: translateY(-1px);
+}
