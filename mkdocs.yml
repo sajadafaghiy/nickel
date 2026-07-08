@@ -40,8 +40,9 @@ theme:
 # Extensions
 markdown_extensions:
   - abbr
-  - footnotes
+  - def_list
   - attr_list
+  - footnotes
   - pymdownx.snippets
   - pymdownx.arithmatex:
       generic: true
@@ -50,7 +51,6 @@ markdown_extensions:
   # - pymdownx.magiclink
   - pymdownx.tasklist:
       custom_checkbox: true
-  - def_list
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
