@@ -1,3 +1,13 @@
+---
+draft: false
+slug: hello-world
+categories:
+  - Hello
+  - World
+tags:
+  - template
+  - how-to
+---
 # ⚛️ عادت‌های اتمی
 
 ## مشخصات
