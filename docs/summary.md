@@ -1,5 +1,3 @@
-# Navigation
-
 * [Home](index.md)
 * Books
     * books/*.md
