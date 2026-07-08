@@ -58,7 +58,7 @@ plugins:
   - search
   - roamlinks
   - tags
-  - awesome-nav
+  # - awesome-nav
 
 extra:
   social:
