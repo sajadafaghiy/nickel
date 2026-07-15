@@ -1,4 +1,6 @@
 site_name: نیکل | خلاصه کتاب
+site_description: Books summary
+site_author: Sajad Afaghiy
 
 theme:
     name: material
@@ -11,14 +13,14 @@ theme:
       - toc.follow
       - content.tooltips
 
-    palette:
+    custom_dir: docs/overrides
 
+    palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
@@ -27,7 +29,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -74,6 +75,7 @@ plugins:
   - tags
 
 extra:
+  manifest: manifest.webmanifest
   social:
     - icon: fontawesome/brands/github
       link: https://sajadafaghiy.github.io
@@ -83,4 +85,5 @@ extra_css:
   - css/extra.css
 
 extra_javascript:
+  - javascripts/register-sw.js
   - https://unpkg.com/mermaid/dist/mermaid.min.js 
