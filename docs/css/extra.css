@@ -5,6 +5,10 @@ body {
     direction: rtl;
 }
 
+.md-search{
+     font-family: 'IRANSans'; 
+}
+
 .md-typeset p {
     text-align: justify;
     hyphens: auto;
