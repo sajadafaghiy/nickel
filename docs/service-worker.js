@@ -1,4 +1,4 @@
-const CACHE_NAME = "nickel-v1";
+const CACHE_NAME = "nickel-v2";
 
 const FILES_TO_CACHE = [
     "/nickel/",
