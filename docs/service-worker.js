@@ -1,11 +1,6 @@
-const CACHE_NAME = "nickel-v2";
+const CACHE_NAME = "nickel-v3";
 
-const FILES_TO_CACHE = [
-    "/nickel/",
-    "/nickel/index.html",
-    "/nickel/assets/icons/favicon-192x192.png",
-    "/nickel/assets/icons/favicon-512x512.png"
-];
+const FILES_TO_CACHE = [];
 
 self.addEventListener("install", event => {
     event.waitUntil(
