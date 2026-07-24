@@ -1,0 +1,26 @@
+{
+  "name": "Nickel - Book Summaries",
+  "short_name": "Nickel",
+  "description": "خلاصه کتاب‌های ارزشمند در حوزه توسعه فردی، کسب‌وکار و فناوری",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "/nickel/",
+  "scope": "/nickel/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "assets/icons/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/favicon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
