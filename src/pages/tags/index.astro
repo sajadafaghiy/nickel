@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const books = await getCollection('books', ({ data }) => !data.draft);
+const tagCounts = new Map<string, number>();
+
+for (const book of books) {
+  for (const tag of book.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+
+const tags = [...tagCounts]
+  .map(([name, count]) => ({ name, count }))
+  .sort((a, b) => a.name.localeCompare(b.name, 'fa'));
+
+const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURIComponent(tag)}/`;
+---
+
+<BaseLayout title="برچسب‌ها | نیکل" description="فهرست الفبایی همهٔ برچسب‌های خلاصه‌کتاب‌ها">
+  <header class="tag-header">
+    <div class="container">
+      <a class="back-link" href={import.meta.env.BASE_URL}>→ بازگشت به صفحهٔ اصلی</a>
+      <span class="eyebrow">موضوع‌ها</span>
+      <h1>همهٔ برچسب‌ها</h1>
+      <p>{tags.length.toLocaleString('fa-IR')} برچسب</p>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="tags-heading">
+    <div class="container">
+      <h2 class="sr-only" id="tags-heading">فهرست الفبایی برچسب‌ها</h2>
+      <ul class="tags-index">
+        {tags.map(({ name, count }) => (
+          <li>
+            <a href={tagHref(name)}>
+              <span>{name}</span>
+              <small>{count.toLocaleString('fa-IR')} کتاب</small>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
