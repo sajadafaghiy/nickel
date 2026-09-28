@@ -21,7 +21,10 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
 <BaseLayout title="برچسب‌ها | نیکل" description="فهرست الفبایی همهٔ برچسب‌های خلاصه‌کتاب‌ها">
   <header class="tag-header">
     <div class="container">
-      <a class="back-link" href={import.meta.env.BASE_URL}>→ بازگشت به صفحهٔ اصلی</a>
+      <a class="back-link" href={import.meta.env.BASE_URL}>
+        <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m10 7 5 5-5 5"></path></svg></span>
+        <span>بازگشت به صفحهٔ اصلی</span>
+      </a>
       <span class="eyebrow">موضوع‌ها</span>
       <h1>همهٔ برچسب‌ها</h1>
       <p>{tags.length.toLocaleString('fa-IR')} برچسب</p>
