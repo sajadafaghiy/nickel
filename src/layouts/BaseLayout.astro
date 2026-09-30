@@ -33,7 +33,15 @@ const searchableText = (book: (typeof books)[number]) => [
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#173f35" />
+    <meta name="application-name" content="نیکل" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="نیکل" />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}pwa-192.svg`} />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}manifest.webmanifest`} />
     <script is:inline>
       (() => {
         const savedTheme = localStorage.getItem('theme');
@@ -118,6 +126,14 @@ const searchableText = (book: (typeof books)[number]) => [
       <div class="container">با علاقه به کتاب و یادگیری ساخته شده است.</div>
     </footer>
     <script>
+      if ('serviceWorker' in navigator) {
+        addEventListener('load', () => {
+          navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, {
+            scope: import.meta.env.BASE_URL,
+          });
+        });
+      }
+
       const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
       const booksMenu = document.querySelector<HTMLDetailsElement>('.books-menu');
       const booksMenuBackdrop = document.querySelector<HTMLButtonElement>('.books-menu-backdrop');
