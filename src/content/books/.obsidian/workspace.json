@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "descartes-error.md",
+                "file": "zero-to-one.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "descartes-error"
+              "title": "zero-to-one"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "descartes-error.md",
+                "file": "zero-to-one.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "descartes-error.md",
+                "file": "zero-to-one.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "descartes-error.md",
+                "file": "zero-to-one.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,8 +190,6 @@
   },
   "active": "fdea9fee499dbf2d",
   "lastOpenFiles": [
-    "atomic-habits.md",
-    "zero-to-one.md",
     "why-we-sleep.md",
     "when-the-scientific-secrets-of-perfect-timing.md",
     "unlimited-memory.md",
@@ -211,10 +209,12 @@
     "noise.md",
     "managing-oneself.md",
     "limitless.md",
-    "little-prince.md",
     "learn-to-remember.md",
     "leading.md",
     "it-didnt-start-with-you.md",
-    "indistractable-how-to-control-your-attention-and-choose-your-life.md"
+    "indistractable-how-to-control-your-attention-and-choose-your-life.md",
+    "im-so-effing-tired.md",
+    "how-to-win-friends-and-influence-people.md",
+    "how-google-works.md"
   ]
 }
