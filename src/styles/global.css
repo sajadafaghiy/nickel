@@ -162,6 +162,7 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .heading-anchor { margin-inline-start: .45rem; color: var(--muted); opacity: 0; font-weight: 500; transition: color .2s ease, opacity .2s ease; }
 .prose :is(h2, h3, h4, h5, h6):hover .heading-anchor, .heading-anchor:focus-visible { color: var(--green); opacity: 1; }
 .prose p, .prose li { color: var(--prose-ink); }
+.prose p { text-align: justify; text-justify: inter-word; }
 .prose blockquote { margin: 2rem 0; padding: 1.2rem 1.5rem; border-right: 4px solid var(--gold); background: var(--quote-bg); border-radius: 12px 0 0 12px; font-weight: 600; }
 .prose blockquote p { margin: 0; }
 .prose li { margin-bottom: .5rem; }
