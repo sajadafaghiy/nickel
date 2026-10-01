@@ -3,7 +3,7 @@ title: 🎯 «قانون هشتاد بیست»
 author: ریچارد کخ
 description: چطور با تمرکز روی مهم‌ترین عوامل، با تلاش کمتر نتایج بزرگ‌تری بگیریم.
 publishedAt: 2026-10-02
-featured: true
+featured: false
 draft: false
 tags:
   - بهره‌وری

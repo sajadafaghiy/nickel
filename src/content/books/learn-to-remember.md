@@ -3,7 +3,7 @@ title: 📌 «چگونه به یاد بیاوریم»
 author: دومینیک اوبراین
 description: مجموعه‌ای از تکنیک‌های کاربردی قهرمان حافظه برای یادگیری سریع‌تر و به‌خاطر سپردن اطلاعات.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - یادگیری

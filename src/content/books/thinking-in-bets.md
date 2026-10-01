@@ -3,7 +3,7 @@ title: 🎲 «تفکر نامطمئن»
 author: آنی دوک
 description: کتابی دربارهٔ تصمیم‌گیری در شرایط عدم قطعیت و جدا کردن کیفیت تصمیم از نتیجه؛ خلاصه هنوز تکمیل نشده است.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - تصمیم‌گیری

@@ -3,7 +3,7 @@ title: 🧠 «حافظهٔ نامحدود»
 author: کوین هورسلی
 description: تکنیک‌هایی عملی برای افزایش تمرکز، یادگیری سریع‌تر و به‌خاطر سپردن پایدار اطلاعات.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - بهره‌وری

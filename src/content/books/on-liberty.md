@@ -3,7 +3,7 @@ title: 🕊️ «دربارهٔ آزادی»
 author: جان استوارت میل
 description: دفاعی فلسفی از آزادی فردی و بررسی مرز دخالت جامعه و حکومت در انتخاب‌های انسان.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - ایجاد تغییر

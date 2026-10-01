@@ -3,7 +3,7 @@ title: ❄️ «گلولهٔ برفی»
 author: آلیس شرودر
 description: زندگی‌نامهٔ جامع وارن بافت و روایت شکل‌گیری شخصیت، اصول و مسیر سرمایه‌گذاری او.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - زندگی‌نامه

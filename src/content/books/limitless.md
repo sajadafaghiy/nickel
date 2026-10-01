@@ -3,7 +3,7 @@ title: ♾️ «بی‌حد و مرز»
 author: جیم کوییک
 description: راهکارهایی برای کنار گذاشتن باورهای محدودکننده و تقویت حافظه، تمرکز و توانایی یادگیری.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - یادگیری

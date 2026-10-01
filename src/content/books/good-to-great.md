@@ -3,7 +3,7 @@ title: 📈 «از خوب به عالی»
 author: جیم کالینز
 description: پژوهشی مدیریتی دربارهٔ ویژگی‌هایی که شرکت‌های معمولی را به سازمان‌هایی عالی و پایدار تبدیل می‌کنند.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - کارآفرینی

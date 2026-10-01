@@ -3,7 +3,7 @@ title: 🔎 «ذهن حواس‌جمع»
 author: نیر ایال
 description: چارچوبی عملی برای شناخت محرک‌های حواس‌پرتی، کنترل توجه و انتخاب آگاهانه‌تر زندگی.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - بهره‌وری

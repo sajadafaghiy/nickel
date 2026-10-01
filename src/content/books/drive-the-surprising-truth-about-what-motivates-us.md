@@ -3,7 +3,7 @@ title: ✊ «انگیزه»
 author: دنیل پینک
 description: بررسی علمی انگیزهٔ درونی و نقش استقلال، تسلط و هدف در عملکرد بهتر انسان‌ها.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - انگیزشی

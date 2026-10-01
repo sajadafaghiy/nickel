@@ -3,7 +3,7 @@ title: 1️⃣ «از صفر به یک»
 author: پیتر تیل
 description: دیدگاهی متفاوت دربارهٔ نوآوری، ساخت انحصار خلاق و خلق کسب‌وکاری که چیزی کاملاً تازه می‌سازد.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - کارآفرینی

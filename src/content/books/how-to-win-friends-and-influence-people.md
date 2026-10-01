@@ -3,7 +3,7 @@ title: 👫 «آیین دوست‌یابی»
 author: دیل کارنگی
 description: اصول ماندگار ارتباط مؤثر، جلب اعتماد، مدیریت اختلاف و تأثیرگذاری مثبت بر دیگران.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - توسعه فردی

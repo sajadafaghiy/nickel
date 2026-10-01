@@ -21,8 +21,6 @@ title: «نام کتاب»
 author: نام نویسنده
 description: توضیح کوتاه برای کارت و موتورهای جست‌وجو
 publishedAt: 2026-09-25
-readingTime: ۷ دقیقه
-category: فلسفه
 featured: false
 draft: false
 ---

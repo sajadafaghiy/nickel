@@ -3,7 +3,7 @@ title: 🌱 «هفت عادت مردمان مؤثر»
 author: استفان کاوی
 description: هفت اصل بنیادین برای مسئولیت‌پذیری، اولویت‌بندی، روابط سازنده و رشد مستمر فردی.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - خودآگاهی

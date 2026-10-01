@@ -3,7 +3,7 @@ title: 💭 «تفکر، سریع و آهسته»
 author: دنیل کانمن
 description: شرح دو نظام فکری ذهن و تأثیر میانبرها و سوگیری‌های شناختی بر قضاوت و تصمیم‌گیری.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - تصمیم‌گیری
