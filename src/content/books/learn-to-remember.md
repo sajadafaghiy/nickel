@@ -6,7 +6,10 @@ publishedAt: 2026-09-25
 featured: false
 draft: false
 tags:
+  - حافظه
   - یادگیری
+  - تمرکز
+  - تکنیک‌های ذهنی
 ---
 ## معرفی کتاب
 
