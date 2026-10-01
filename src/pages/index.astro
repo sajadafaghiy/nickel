@@ -5,7 +5,7 @@ import { getReadingTime } from '../utils/readingTime';
 
 const books = (await getCollection('books', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const featuredBooks = books.filter(({ data }) => data.featured).slice(0, 3);
+const featuredBooks = books.filter(({ data }) => data.featured);
 
 const formatter = new Intl.DateTimeFormat('fa-IR', { day: 'numeric', month: 'long', year: 'numeric' });
 const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURIComponent(tag)}/`;
@@ -26,16 +26,30 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
   {featuredBooks.length > 0 && (
     <section class="section featured-section" aria-labelledby="featured-heading">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading featured-heading">
           <div>
             <span class="eyebrow">پیشنهاد نیکل</span>
             <h2 id="featured-heading">خلاصه‌های منتخب</h2>
           </div>
-          <p>برای شروع این کتاب‌ها را پیشنهاد می‌کنیم</p>
+          <div class="featured-heading-actions">
+            <p>برای شروع این کتاب‌ها را پیشنهاد می‌کنیم</p>
+            {featuredBooks.length > 0 && (
+              <div class="carousel-controls" aria-label="کنترل‌های اسلاید خلاصه‌های منتخب">
+                <button class="carousel-button" type="button" data-carousel-prev aria-label="اسلاید قبلی">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+                </button>
+                <span class="carousel-status" data-carousel-status aria-live="polite"></span>
+                <button class="carousel-button" type="button" data-carousel-next aria-label="اسلاید بعدی">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-        <div class="books-grid">
-          {featuredBooks.map((book) => (
-            <article class="book-card featured-card">
+        <div class="featured-carousel" data-carousel>
+          <div class="featured-track" data-carousel-track>
+            {featuredBooks.map((book, index) => (
+              <article class="book-card featured-card" aria-label={`${index + 1} از ${featuredBooks.length}`}>
               <div class="card-top">
                 <span class="featured-badge">منتخب</span>
                 <time class="date" datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
@@ -53,8 +67,9 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
                   <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m14 7-5 5 5 5"></path></svg></span>
                 </a>
               </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -91,3 +106,69 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+  const track = carousel?.querySelector<HTMLElement>('[data-carousel-track]');
+  const cards = track ? [...track.querySelectorAll<HTMLElement>('.featured-card')] : [];
+  const previousButton = document.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+  const nextButton = document.querySelector<HTMLButtonElement>('[data-carousel-next]');
+  const status = document.querySelector<HTMLElement>('[data-carousel-status]');
+  let currentPage = 0;
+  let autoplayTimer: number | undefined;
+
+  const cardsPerView = () => window.innerWidth <= 560 ? 1 : window.innerWidth <= 800 ? 2 : 3;
+  const pageCount = () => Math.max(1, Math.ceil(cards.length / cardsPerView()));
+
+  const renderCarousel = () => {
+    if (!track || !cards.length) return;
+    currentPage = Math.min(currentPage, pageCount() - 1);
+    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
+    const offset = currentPage * cardsPerView() * (cards[0].getBoundingClientRect().width + gap);
+    track.style.transform = `translateX(${offset}px)`;
+    if (previousButton) previousButton.disabled = currentPage === 0;
+    if (nextButton) nextButton.disabled = currentPage === pageCount() - 1;
+    if (status) status.textContent = `${(currentPage + 1).toLocaleString('fa-IR')} / ${pageCount().toLocaleString('fa-IR')}`;
+  };
+
+  const stopAutoplay = () => {
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = undefined;
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (pageCount() <= 1 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    autoplayTimer = window.setInterval(() => {
+      currentPage = (currentPage + 1) % pageCount();
+      renderCarousel();
+    }, 5000);
+  };
+
+  previousButton?.addEventListener('click', () => {
+    currentPage = Math.max(0, currentPage - 1);
+    renderCarousel();
+    startAutoplay();
+  });
+  nextButton?.addEventListener('click', () => {
+    currentPage = Math.min(pageCount() - 1, currentPage + 1);
+    renderCarousel();
+    startAutoplay();
+  });
+  carousel?.addEventListener('mouseenter', stopAutoplay);
+  carousel?.addEventListener('mouseleave', startAutoplay);
+  carousel?.addEventListener('focusin', stopAutoplay);
+  carousel?.addEventListener('focusout', (event) => {
+    if (!carousel.contains(event.relatedTarget as Node | null)) startAutoplay();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAutoplay();
+    else startAutoplay();
+  });
+  window.addEventListener('resize', () => {
+    renderCarousel();
+    startAutoplay();
+  });
+  renderCarousel();
+  startAutoplay();
+</script>
