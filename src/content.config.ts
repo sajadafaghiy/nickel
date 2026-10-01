@@ -8,7 +8,6 @@ const books = defineCollection({
     author: z.string(),
     description: z.string(),
     publishedAt: z.coerce.date(),
-    readingTime: z.string(),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
