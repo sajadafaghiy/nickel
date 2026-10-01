@@ -3,7 +3,6 @@ title: 🥚 «هنر ظریف بی‌خیالی»
 author: مارک منسون
 description: نگاهی واقع‌گرایانه به انتخاب ارزش‌ها، پذیرش محدودیت‌ها و تمرکز بر چیزهایی که واقعاً اهمیت دارند.
 publishedAt: 2026-09-25
-readingTime: ۸ دقیقه
 featured: true
 draft: false
 tags:

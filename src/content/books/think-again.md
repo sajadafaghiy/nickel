@@ -3,7 +3,6 @@ title: 💡 «دوباره فکر کن»
 author: آدام گرانت
 description: دعوتی به بازنگری باورها، پذیرش اشتباه و پرورش انعطاف‌پذیری ذهنی در جهانی متغیر.
 publishedAt: 2026-09-25
-readingTime: ۱۷ دقیقه
 featured: true
 draft: false
 tags:

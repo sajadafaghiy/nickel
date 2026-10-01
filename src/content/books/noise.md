@@ -3,7 +3,6 @@ title: ⚖️ «نویز»
 author: دنیل کانمن، اولیویه سیبونی و کاس سانستین
 description: بررسی خطاهای تصادفی در قضاوت انسان و راهکارهایی برای تصمیم‌گیری منسجم‌تر و منصفانه‌تر.
 publishedAt: 2026-09-25
-readingTime: ۸ دقیقه
 featured: true
 draft: false
 tags:

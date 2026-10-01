@@ -3,7 +3,6 @@ title: 👨🏻 «مدیریت خود»
 author: پیتر دراکر
 description: راهنمای شناخت نقاط قوت، ارزش‌ها و شیوهٔ عملکرد برای ساختن مسیری حرفه‌ای و مؤثر.
 publishedAt: 2026-09-25
-readingTime: ۶ دقیقه
 featured: true
 draft: false
 tags:

@@ -3,7 +3,6 @@ title: ⌚ «کِی؟»
 author: دنیل اچ. پینک
 description: بررسی علمی زمان‌بندی مناسب برای کار، یادگیری، تصمیم‌گیری و استراحت بر اساس ریتم طبیعی انسان.
 publishedAt: 2026-09-25
-readingTime: ۵ دقیقه
 featured: true
 draft: false
 tags:

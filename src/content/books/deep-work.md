@@ -3,7 +3,6 @@ title: 🎯 «کار عمیق»
 author: کال نیوپورت
 description: راهنمای تمرکز بدون حواس‌پرتی برای انجام کارهای ارزشمند و افزایش کیفیت و بهره‌وری حرفه‌ای.
 publishedAt: 2026-09-25
-readingTime: ۷ دقیقه
 featured: true
 draft: false
 tags:

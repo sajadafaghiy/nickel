@@ -3,7 +3,6 @@ title: ⚛️ «عادت‌های اتمی»
 author: جیمز کلیر
 description: راهنمایی عملی برای ساخت عادت‌های خوب، ترک عادت‌های بد و ایجاد تغییرات کوچک اما ماندگار.
 publishedAt: 2026-09-25
-readingTime: ۸ دقیقه
 featured: true
 draft: false
 tags:

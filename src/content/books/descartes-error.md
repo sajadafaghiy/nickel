@@ -3,7 +3,6 @@ title: 🧠 «خطای دکارت»
 author: آنتونیو داماسیو
 description: بررسی رابطه میان احساسات، بدن، مغز و تصمیم‌گیری و نقد جدایی سنتی میان عقل و احساس
 publishedAt: 2026-10-01
-readingTime: ۱۲ دقیقه
 featured: true
 draft: false
 tags:
