@@ -75,7 +75,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
     </section>
   )}
 
-  <section class="section" aria-labelledby="books-heading">
+  <section class="section books-section" aria-labelledby="books-heading">
     <div class="container">
       <div class="section-heading">
         <h2 id="books-heading">تازه‌ترین خلاصه‌ها</h2>
@@ -123,9 +123,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
   const renderCarousel = () => {
     if (!track || !cards.length) return;
     currentPage = Math.min(currentPage, pageCount() - 1);
-    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
-    const offset = currentPage * cardsPerView() * (cards[0].getBoundingClientRect().width + gap);
-    track.style.transform = `translateX(${offset}px)`;
+    track.style.setProperty('--carousel-page', String(currentPage));
     if (previousButton) previousButton.disabled = currentPage === 0;
     if (nextButton) nextButton.disabled = currentPage === pageCount() - 1;
     if (status) status.textContent = `${(currentPage + 1).toLocaleString('fa-IR')} / ${pageCount().toLocaleString('fa-IR')}`;
