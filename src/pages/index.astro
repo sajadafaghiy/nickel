@@ -46,7 +46,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
             )}
           </div>
         </div>
-        <div class="featured-carousel" data-carousel>
+        <div class="featured-carousel" data-carousel tabindex="0" role="region" aria-label="خلاصه‌های منتخب؛ برای پیمایش بکشید یا از کلیدهای جهت‌نما استفاده کنید">
           <div class="featured-track" data-carousel-track>
             {featuredBooks.map((book, index) => (
               <article class="book-card featured-card" aria-label={`${index + 1} از ${featuredBooks.length}`}>
@@ -116,6 +116,9 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
   const status = document.querySelector<HTMLElement>('[data-carousel-status]');
   let currentPage = 0;
   let autoplayTimer: number | undefined;
+  let pointerStartX = 0;
+  let pointerOffset = 0;
+  let activePointer: number | undefined;
 
   const cardsPerView = () => window.innerWidth <= 560 ? 1 : window.innerWidth <= 800 ? 2 : 3;
   const pageCount = () => Math.max(1, Math.ceil(cards.length / cardsPerView()));
@@ -152,6 +155,51 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
     currentPage = Math.min(pageCount() - 1, currentPage + 1);
     renderCarousel();
     startAutoplay();
+  });
+  const moveBy = (amount: number) => {
+    currentPage = Math.max(0, Math.min(pageCount() - 1, currentPage + amount));
+    renderCarousel();
+    startAutoplay();
+  };
+
+  carousel?.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    activePointer = event.pointerId;
+    pointerStartX = event.clientX;
+    pointerOffset = 0;
+    carousel.setPointerCapture(event.pointerId);
+    carousel.classList.add('is-dragging');
+    stopAutoplay();
+  });
+  carousel?.addEventListener('pointermove', (event) => {
+    if (activePointer !== event.pointerId || !track) return;
+    pointerOffset = event.clientX - pointerStartX;
+    track.style.setProperty('--carousel-drag', `${pointerOffset}px`);
+  });
+  const finishDrag = (event: PointerEvent) => {
+    if (activePointer !== event.pointerId || !carousel || !track) return;
+    if (Math.abs(pointerOffset) > Math.min(80, carousel.clientWidth * .12)) {
+      currentPage = Math.max(0, Math.min(pageCount() - 1, currentPage + (pointerOffset > 0 ? 1 : -1)));
+    }
+    activePointer = undefined;
+    pointerOffset = 0;
+    track.style.setProperty('--carousel-drag', '0px');
+    carousel.classList.remove('is-dragging');
+    renderCarousel();
+    startAutoplay();
+  };
+  carousel?.addEventListener('pointerup', finishDrag);
+  carousel?.addEventListener('pointercancel', finishDrag);
+  carousel?.addEventListener('wheel', (event) => {
+    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY) || Math.abs(event.deltaX) < 20) return;
+    event.preventDefault();
+    moveBy(event.deltaX < 0 ? 1 : -1);
+  }, { passive: false });
+  carousel?.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') moveBy(1);
+    else if (event.key === 'ArrowRight') moveBy(-1);
+    else return;
+    event.preventDefault();
   });
   carousel?.addEventListener('mouseenter', stopAutoplay);
   carousel?.addEventListener('mouseleave', startAutoplay);
