@@ -3,7 +3,7 @@ title: 🏁 «قدرت شروع ناقص»
 author: جیمز کلیر
 description: راهنمای غلبه بر کمال‌گرایی و اهمال‌کاری با شروع کردن، استمرار و اصلاح تدریجی مسیر.
 publishedAt: 2026-09-25
-featured: false
+featured: true
 draft: false
 tags:
   - اقدام‌گرایی
