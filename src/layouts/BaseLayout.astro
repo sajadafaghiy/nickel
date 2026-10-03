@@ -19,7 +19,7 @@ const tagsHref = `${import.meta.env.BASE_URL}tags/`;
 
 const searchableText = (book: (typeof books)[number]) => [
   book.data.title,
-  book.data.author,
+  ...book.data.authors,
   ...book.data.tags,
   book.data.description,
   book.body,
@@ -103,11 +103,12 @@ const searchableText = (book: (typeof books)[number]) => [
               <ul class="sidebar-list" id="book-list">
                 {books.map((book) => {
                   const href = `${import.meta.env.BASE_URL}books/${book.id}/`;
+                  const authors = book.data.authors.join(' و ');
                   return (
-                    <li data-search={searchableText(book)} data-title={book.data.title} data-author={book.data.author} data-href={href}>
+                    <li data-search={searchableText(book)} data-title={book.data.title} data-author={authors} data-href={href}>
                       <a href={href} aria-current={currentPath === href ? 'page' : undefined}>
                         <span>{book.data.title}</span>
-                        <small>{book.data.author}</small>
+                        <small>{authors}</small>
                       </a>
                     </li>
                   );

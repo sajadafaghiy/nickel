@@ -1,7 +1,8 @@
 ---
 title: «ذهن حواس‌جمع»
 emoji: 🔎
-author: نیر ایال
+authors:
+  - نیر ایال
 description: چارچوبی عملی برای شناخت محرک‌های حواس‌پرتی، کنترل توجه و انتخاب آگاهانه‌تر زندگی.
 publishedAt: 2026-09-25
 featured: false

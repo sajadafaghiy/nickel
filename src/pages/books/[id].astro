@@ -24,7 +24,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
     <header class="article-header">
       <h1>{book.data.title}</h1>
       <div class="article-meta">
-        <span>نویسنده: {book.data.author}</span>
+        <span>نویسنده: {book.data.authors.join(' و ')}</span>
         <span>{getReadingTime(book.body ?? '')} مطالعه</span>
         <time datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
       </div>

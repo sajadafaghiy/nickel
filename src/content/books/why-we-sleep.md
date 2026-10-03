@@ -1,7 +1,8 @@
 ---
 title: «چرا می‌خوابیم؟»
 emoji: 💤
-author: متیو واکر
+authors:
+  - متیو واکر
 description: توضیح علمی نقش حیاتی خواب در حافظه، یادگیری، سلامت جسم و روان و کیفیت زندگی.
 publishedAt: 2026-09-25
 featured: false
