@@ -14,12 +14,14 @@ const {
 
 const books = (await getCollection('books', ({ data }) => !data.draft))
   .sort((a, b) => a.data.title.localeCompare(b.data.title, 'fa'));
+const authors = await getCollection('authors');
+const authorNames = new Map(authors.map((author) => [author.id, author.data.name]));
 const currentPath = Astro.url.pathname;
 const tagsHref = `${import.meta.env.BASE_URL}tags/`;
 
 const searchableText = (book: (typeof books)[number]) => [
   book.data.title,
-  ...book.data.authors,
+  ...book.data.authors.map((author) => authorNames.get(author.id) ?? author.id),
   ...book.data.tags,
   book.data.description,
   book.body,
@@ -103,7 +105,7 @@ const searchableText = (book: (typeof books)[number]) => [
               <ul class="sidebar-list" id="book-list">
                 {books.map((book) => {
                   const href = `${import.meta.env.BASE_URL}books/${book.id}/`;
-                  const authors = book.data.authors.join(' و ');
+                  const authors = book.data.authors.map((author) => authorNames.get(author.id) ?? author.id).join(' و ');
                   return (
                     <li data-search={searchableText(book)} data-title={book.data.title} data-author={authors} data-href={href}>
                       <a href={href} aria-current={currentPath === href ? 'page' : undefined}>

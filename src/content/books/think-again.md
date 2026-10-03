@@ -2,7 +2,7 @@
 title: «دوباره فکر کن»
 emoji: 💡
 authors:
-  - آدام گرانت
+  - adam-grant
 description: دعوتی به بازنگری باورها، پذیرش اشتباه و پرورش انعطاف‌پذیری ذهنی در جهانی متغیر.
 publishedAt: 2026-09-25
 featured: true

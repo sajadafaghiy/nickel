@@ -2,7 +2,7 @@
 title: «آیین دوست‌یابی»
 emoji: 👫
 authors:
-  - دیل کارنگی
+  - dale-carnegie
 description: اصول ماندگار ارتباط مؤثر، جلب اعتماد، مدیریت اختلاف و تأثیرگذاری مثبت بر دیگران.
 publishedAt: 2026-09-25
 featured: false

@@ -2,7 +2,7 @@
 title: «انگیزه»
 emoji: ✊
 authors:
-  - دنیل پینک
+  - daniel-pink
 description: بررسی علمی انگیزهٔ درونی و نقش استقلال، تسلط و هدف در عملکرد بهتر انسان‌ها.
 publishedAt: 2026-09-25
 featured: false

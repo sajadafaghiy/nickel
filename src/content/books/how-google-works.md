@@ -2,8 +2,8 @@
 title: «گوگل چگونه کار می‌کند؟»
 emoji: 🌐
 authors:
-  - اریک اشمیت
-  - جاناتان روزنبرگ
+  - eric-schmidt
+  - jonathan-rosenberg
 description: تجربه‌ها و اصول مدیریتی گوگل برای جذب افراد خلاق، نوآوری و ساخت سازمانی موفق.
 publishedAt: 2026-09-25
 featured: false

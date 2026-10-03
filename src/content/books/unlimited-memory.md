@@ -2,7 +2,7 @@
 title: «حافظهٔ نامحدود»
 emoji: 🧠
 authors:
-  - کوین هورسلی
+  - kevin-horsley
 description: تکنیک‌هایی عملی برای افزایش تمرکز، یادگیری سریع‌تر و به‌خاطر سپردن پایدار اطلاعات.
 publishedAt: 2026-09-25
 featured: false

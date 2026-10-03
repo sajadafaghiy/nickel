@@ -2,7 +2,7 @@
 title: «قانون هشتاد بیست»
 emoji: 🎯
 authors:
-  - ریچارد کخ
+  - richard-koch
 description: چطور با تمرکز روی مهم‌ترین عوامل، با تلاش کمتر نتایج بزرگ‌تری بگیریم.
 publishedAt: 2026-10-02
 featured: false

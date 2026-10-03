@@ -2,7 +2,7 @@
 title: «پنج دشمن عملکرد تیمی»
 emoji: 😈
 authors:
-  - پاتریک لنچیونی
+  - patrick-lencioni
 description: معرفی پنج مانع اعتماد، تعارض، تعهد، پاسخ‌گویی و نتیجه‌گرایی که تیم‌ها را تضعیف می‌کنند.
 publishedAt: 2026-09-25
 featured: false

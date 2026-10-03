@@ -2,7 +2,7 @@
 title: «گلولهٔ برفی»
 emoji: ❄️
 authors:
-  - آلیس شرودر
+  - alice-schroeder
 description: زندگی‌نامهٔ جامع وارن بافت و روایت شکل‌گیری شخصیت، اصول و مسیر سرمایه‌گذاری او.
 publishedAt: 2026-09-25
 featured: false

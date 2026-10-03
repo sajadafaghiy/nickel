@@ -2,7 +2,7 @@
 title: «هفت عادت مردمان مؤثر»
 emoji: 🌱
 authors:
-  - استفان کاوی
+  - stephen-covey
 description: هفت اصل بنیادین برای مسئولیت‌پذیری، اولویت‌بندی، روابط سازنده و رشد مستمر فردی.
 publishedAt: 2026-09-25
 featured: false

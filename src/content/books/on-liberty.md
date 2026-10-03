@@ -2,7 +2,7 @@
 title: «دربارهٔ آزادی»
 emoji: 🕊️
 authors:
-  - جان استوارت میل
+  - john-stuart-mill
 description: دفاعی فلسفی از آزادی فردی و بررسی مرز دخالت جامعه و حکومت در انتخاب‌های انسان.
 publishedAt: 2026-09-25
 featured: false

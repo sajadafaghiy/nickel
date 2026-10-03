@@ -2,7 +2,7 @@
 title: «چگونه به یاد بیاوریم»
 emoji: 📌
 authors:
-  - دومینیک اوبراین
+  - dominic-obrien
 description: مجموعه‌ای از تکنیک‌های کاربردی قهرمان حافظه برای یادگیری سریع‌تر و به‌خاطر سپردن اطلاعات.
 publishedAt: 2026-09-25
 featured: false

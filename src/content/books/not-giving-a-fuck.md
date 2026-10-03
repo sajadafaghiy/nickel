@@ -2,7 +2,7 @@
 title: «هنر ظریف بی‌خیالی»
 emoji: 🥚
 authors:
-  - مارک منسون
+  - mark-manson
 description: نگاهی واقع‌گرایانه به انتخاب ارزش‌ها، پذیرش محدودیت‌ها و تمرکز بر چیزهایی که واقعاً اهمیت دارند.
 publishedAt: 2026-09-25
 featured: false

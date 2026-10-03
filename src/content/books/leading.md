@@ -2,8 +2,8 @@
 title: «رهبری»
 emoji: 👑
 authors:
-  - الکس فرگوسن
-  - مایکل موریتز
+  - alex-ferguson
+  - michael-moritz
 description: درس‌های مدیریتی الکس فرگوسن دربارهٔ ساخت تیم، حفظ استانداردها و دستیابی به موفقیت پایدار.
 publishedAt: 2026-09-25
 featured: false

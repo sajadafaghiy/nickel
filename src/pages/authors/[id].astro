@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReadingTime } from '../../utils/readingTime';
+
+export const getStaticPaths = (async () => {
+  const authors = await getCollection('authors');
+  return authors.map((author) => ({ params: { id: author.id }, props: { author } }));
+}) satisfies GetStaticPaths;
+
+const { author } = Astro.props;
+const { Content } = await render(author);
+const books = (await getCollection('books', ({ data }) =>
+  !data.draft && data.authors.some((reference) => reference.id === author.id)
+)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const formatter = new Intl.DateTimeFormat('fa-IR', { day: 'numeric', month: 'long', year: 'numeric' });
+const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURIComponent(tag)}/`;
+---
+
+<BaseLayout title={`${author.data.name} | نیکل`} description={`کتاب‌ها و خلاصه‌های آثار ${author.data.name}`}>
+  <header class="tag-header">
+    <div class="container">
+      <a class="back-link" href={import.meta.env.BASE_URL}>
+        <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m10 7 5 5-5 5"></path></svg></span>
+        <span>بازگشت به همهٔ خلاصه‌ها</span>
+      </a>
+      <span class="eyebrow">نویسنده</span>
+      <h1>{author.data.name}</h1>
+      <p>{books.length.toLocaleString('fa-IR')} کتاب از این نویسنده</p>
+      <div class="prose"><Content /></div>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="author-books-heading">
+    <div class="container">
+      <h2 class="sr-only" id="author-books-heading">کتاب‌های {author.data.name}</h2>
+      <div class="books-grid">
+        {books.map((book) => (
+          <article class="book-card">
+            <div class="card-top">
+              <time class="date" datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
+            </div>
+            <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} {book.data.title}</a></h3>
+            <p class="description">{book.data.description}</p>
+            <div class="tags card-tags" aria-label="برچسب‌ها">
+              {book.data.tags.map((tag) => <a class="tag" href={tagHref(tag)}>{tag}</a>)}
+            </div>
+            <div class="card-footer">
+              <span>{getReadingTime(book.body ?? '')} مطالعه</span>
+              <a class="read-more" href={`${import.meta.env.BASE_URL}books/${book.id}/`}>
+                <span>مطالعهٔ خلاصه</span>
+                <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m14 7-5 5 5 5"></path></svg></span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

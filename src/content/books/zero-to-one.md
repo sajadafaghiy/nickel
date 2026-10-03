@@ -2,7 +2,7 @@
 title: «از صفر به یک»
 emoji: 1️⃣
 authors:
-  - پیتر تیل
+  - peter-thiel
 description: دیدگاهی متفاوت دربارهٔ نوآوری، ساخت انحصار خلاق و خلق کسب‌وکاری که چیزی کاملاً تازه می‌سازد.
 publishedAt: 2026-09-25
 featured: false

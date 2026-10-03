@@ -2,7 +2,7 @@
 title: «اثر مرکب»
 emoji: 🌳
 authors:
-  - دارن هاردی
+  - darren-hardy
 description: توضیح اینکه چگونه انتخاب‌ها و عادت‌های کوچک با تکرار مداوم به نتایج بزرگ تبدیل می‌شوند.
 publishedAt: 2026-09-25
 featured: false

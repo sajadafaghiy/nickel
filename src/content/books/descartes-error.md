@@ -2,7 +2,7 @@
 title: «خطای دکارت»
 emoji: 🧠
 authors:
-  - آنتونیو داماسیو
+  - antonio-damasio
 description: بررسی رابطه میان احساسات، بدن، مغز و تصمیم‌گیری و نقد جدایی سنتی میان عقل و احساس.
 publishedAt: 2026-10-01
 featured: false

@@ -2,7 +2,7 @@
 title: «قدرت شروع ناقص»
 emoji: 🏁
 authors:
-  - جیمز کلیر
+  - james-clear
 description: راهنمای غلبه بر کمال‌گرایی و اهمال‌کاری با شروع کردن، استمرار و اصلاح تدریجی مسیر.
 publishedAt: 2026-09-25
 featured: true

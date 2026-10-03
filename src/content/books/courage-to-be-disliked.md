@@ -2,8 +2,8 @@
 title: «شجاعت دوست‌داشتنی نبودن»
 emoji: 👎🏻
 authors:
-  - ایچیرو کیشیمی
-  - فومیتاکه کوگا
+  - ichiro-kishimi
+  - fumitake-koga
 description: گفت‌وگویی فلسفی بر پایهٔ روان‌شناسی آدلر دربارهٔ آزادی، مسئولیت و رهایی از تأیید دیگران.
 publishedAt: 2026-09-25
 featured: false

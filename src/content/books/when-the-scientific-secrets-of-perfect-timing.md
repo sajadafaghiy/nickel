@@ -2,7 +2,7 @@
 title: «کِی؟»
 emoji: ⌚
 authors:
-  - دنیل اچ. پینک
+  - daniel-h-pink
 description: بررسی علمی زمان‌بندی مناسب برای کار، یادگیری، تصمیم‌گیری و استراحت بر اساس ریتم طبیعی انسان.
 publishedAt: 2026-09-25
 featured: false

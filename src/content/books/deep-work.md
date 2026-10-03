@@ -2,7 +2,7 @@
 title: «کار عمیق»
 emoji: 🎯
 authors:
-  - کال نیوپورت
+  - cal-newport
 description: راهنمای تمرکز بدون حواس‌پرتی برای انجام کارهای ارزشمند و افزایش کیفیت و بهره‌وری حرفه‌ای.
 publishedAt: 2026-09-25
 featured: false

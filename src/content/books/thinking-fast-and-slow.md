@@ -2,7 +2,7 @@
 title: «تفکر، سریع و آهسته»
 emoji: 💭
 authors:
-  - دنیل کانمن
+  - daniel-kahneman
 description: شرح دو نظام فکری ذهن و تأثیر میانبرها و سوگیری‌های شناختی بر قضاوت و تصمیم‌گیری.
 publishedAt: 2026-09-25
 featured: false

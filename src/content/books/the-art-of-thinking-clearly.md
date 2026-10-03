@@ -2,7 +2,7 @@
 title: «هنر شفاف اندیشیدن»
 emoji: 🗯️
 authors:
-  - رولف دوبلی
+  - rolf-dobelli
 description: معرفی خطاهای شناختی رایج و راه‌هایی برای قضاوت دقیق‌تر در زندگی، کار و تصمیم‌های مالی.
 publishedAt: 2026-09-25
 featured: false

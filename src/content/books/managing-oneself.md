@@ -2,7 +2,7 @@
 title: «مدیریت خود»
 emoji: 👨🏻
 authors:
-  - پیتر دراکر
+  - peter-drucker
 description: راهنمای شناخت نقاط قوت، ارزش‌ها و شیوهٔ عملکرد برای ساختن مسیری حرفه‌ای و مؤثر.
 publishedAt: 2026-09-25
 featured: false

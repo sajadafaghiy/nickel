@@ -2,7 +2,7 @@
 title: «موهبت کامل نبودن»
 emoji: 🪴
 authors:
-  - برنه براون
+  - brene-brown
 description: راهنمایی برای پذیرش نقص‌ها، غلبه بر کمال‌گرایی و ساختن زندگی‌ای اصیل‌تر و رضایت‌بخش‌تر.
 publishedAt: 2026-10-04
 featured: true

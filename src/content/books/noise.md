@@ -2,9 +2,9 @@
 title: «نویز»
 emoji: ⚖️
 authors:
-  - دنیل کانمن
-  - اولیویه سیبونی
-  - کاس سانستین
+  - daniel-kahneman
+  - olivier-sibony
+  - cass-sunstein
 description: بررسی خطاهای تصادفی در قضاوت انسان و راهکارهایی برای تصمیم‌گیری منسجم‌تر و منصفانه‌تر.
 publishedAt: 2026-09-25
 featured: true

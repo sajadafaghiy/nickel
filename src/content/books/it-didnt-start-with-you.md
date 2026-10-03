@@ -2,7 +2,7 @@
 title: «با تو آغاز نشده است»
 emoji: 🧬
 authors:
-  - مارک وولین
+  - mark-wolynn
 description: بررسی تأثیر تروماهای بین‌نسلی بر زندگی و راه‌هایی برای شناخت و شکستن الگوهای به‌ارث‌رسیده.
 publishedAt: 2026-09-25
 featured: false
