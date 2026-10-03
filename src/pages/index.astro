@@ -54,7 +54,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
                 <span class="featured-badge">منتخب</span>
                 <time class="date" datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
               </div>
-              <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.title}</a></h3>
+              <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} {book.data.title}</a></h3>
               <span class="author">{book.data.author}</span>
               <p class="description">{book.data.description}</p>
               <div class="tags card-tags" aria-label="برچسب‌ها">
@@ -87,7 +87,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
             <div class="card-top">
               <time class="date" datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
             </div>
-            <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.title}</a></h3>
+            <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} {book.data.title}</a></h3>
             <span class="author">{book.data.author}</span>
             <p class="description">{book.data.description}</p>
             <div class="tags card-tags" aria-label="برچسب‌ها">
