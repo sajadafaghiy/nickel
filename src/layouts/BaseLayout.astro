@@ -17,6 +17,7 @@ const books = (await getCollection('books', ({ data }) => !data.draft))
 const authors = await getCollection('authors');
 const authorNames = new Map(authors.map((author) => [author.id, author.data.name]));
 const currentPath = Astro.url.pathname;
+const authorsHref = `${import.meta.env.BASE_URL}authors/`;
 const tagsHref = `${import.meta.env.BASE_URL}tags/`;
 
 const searchableText = (book: (typeof books)[number]) => [
@@ -118,6 +119,10 @@ const searchableText = (book: (typeof books)[number]) => [
               </ul>
             </div>
           </details>
+          <a class="sidebar-tags-link" href={authorsHref} aria-current={currentPath === authorsHref ? 'page' : undefined}>
+            <span class="books-menu-icon" aria-hidden="true">✎</span>
+            <span>همهٔ نویسندگان</span>
+          </a>
           <a class="sidebar-tags-link" href={tagsHref} aria-current={currentPath === tagsHref ? 'page' : undefined}>
             <span class="books-menu-icon" aria-hidden="true">#</span>
             <span>همهٔ برچسب‌ها</span>
