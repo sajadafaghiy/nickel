@@ -5,7 +5,7 @@ authors:
   - patrick-lencioni
 description: مدلی ساده برای شناسایی و پرورش اعضای فروتن، باانگیزه و هوشمند در تیم‌های کاری.
 publishedAt: 2026-09-25
-featured: true
+featured: false
 draft: false
 tags:
   - تیم‌سازی
