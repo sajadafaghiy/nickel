@@ -171,14 +171,12 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .back-link:hover .link-chevron { transform: translateX(2px); }
 .article-header { padding-bottom: 2.4rem; border-bottom: 1px solid var(--line); }
 .article-header h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); }
-.article-meta { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; color: var(--muted); font-size: .9rem; }
+.article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.5rem; color: var(--muted); font-size: .9rem; }
 .article-description { margin: 1.4rem 0 1rem; color: var(--muted); }
-.article-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
-.share-button { display: inline-flex; align-items: center; gap: .55rem; padding: .55rem .9rem; border: 1px solid var(--line); border-radius: 12px; color: var(--green); background: var(--surface); cursor: pointer; font-weight: 700; transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease; }
-.share-button:hover { border-color: var(--green); background: var(--green-soft); transform: translateY(-1px); }
+.share-button { display: grid; place-items: center; flex: 0 0 auto; width: 42px; height: 42px; padding: 0; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--surface); cursor: pointer; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.share-button:hover { color: var(--green); border-color: var(--green); transform: translateY(-1px); }
 .share-button:focus-visible { outline: 3px solid color-mix(in srgb, var(--green) 25%, transparent); outline-offset: 2px; }
-.share-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.share-status { min-height: 1.5em; color: var(--muted); font-size: .8rem; }
+.share-button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .prose { font-size: 1.06rem; padding-top: 2rem; }
 .article-tags-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .article-tags-label { display: block; margin-bottom: .75rem; color: var(--muted); font-size: .85rem; font-weight: 700; }
