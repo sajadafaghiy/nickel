@@ -5,7 +5,7 @@ authors:
   - thomas-harris
 description: کتابی درباره تحلیل رفتار متقابل و شناخت نقش کودک، والد و بالغ در شکل‌گیری افکار، احساسات و رفتارهای ما.
 publishedAt: 2026-10-06
-featured: true
+featured: false
 draft: false
 tags:
   - تحلیل رفتار متقابل

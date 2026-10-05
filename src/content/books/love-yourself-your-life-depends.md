@@ -4,7 +4,7 @@ emoji: 🤍
 authors: kamal-ravikant
 description: راهنمایی برای بخشیدن خود، ساختن رابطه‌ای سالم‌تر با خود و تبدیل دوست داشتن خود به یک عادت روزانه.
 publishedAt: 2026-10-05
-featured: true
+featured: false
 draft: false
 tags:
   - خودشناسی
