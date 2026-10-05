@@ -1,7 +1,8 @@
 ---
 title: «خودت را همان‌گونه دوست بدار که شایسته آنی»
 emoji: 🤍
-authors: kamal-ravikant
+authors: 
+  - kamal-ravikant
 description: راهنمایی برای بخشیدن خود، ساختن رابطه‌ای سالم‌تر با خود و تبدیل دوست داشتن خود به یک عادت روزانه.
 publishedAt: 2026-10-05
 featured: false
