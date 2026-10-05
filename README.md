@@ -1,5 +1,7 @@
 # نیکل
 
+[![Deploy Astro to GitHub Pages](https://github.com/sajadafaghiy/nickel/actions/workflows/deploy.yml/badge.svg)](https://github.com/sajadafaghiy/nickel/actions/workflows/deploy.yml)
+
 یک وب‌سایت استاتیک فارسی و راست‌به‌چپ برای انتشار خلاصهٔ کتاب، ساخته‌شده با Astro 7. تمام نوشته‌ها فایل Markdown هستند و برای افزودن محتوا نیازی به ویرایش کامپوننت‌ها نیست.
 
 ## اجرای محلی
