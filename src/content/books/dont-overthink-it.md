@@ -4,7 +4,7 @@ emoji: 🌀
 authors:
   - anne-bogel
 description: راهکارهایی کاربردی برای رهایی از نشخوار فکری، کنار گذاشتن کمال‌گرایی و لذت بردن از زندگی روزمره.
-publishedAt: 2026-10-09
+publishedAt: 2026-10-08
 featured: false
 draft: false
 tags:
