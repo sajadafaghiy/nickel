@@ -85,6 +85,11 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
     trigger.style.top = `${Math.max(8, rect.top - trigger.offsetHeight - 10)}px`;
   };
 
+  const queueTriggerPosition = (delay = 0) => {
+    window.clearTimeout(selectionTimer);
+    selectionTimer = window.setTimeout(positionTrigger, delay);
+  };
+
   const drawCard = async () => {
     await document.fonts.ready;
     const context = canvas.getContext('2d');
@@ -136,10 +141,17 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
   };
 
   document.addEventListener('selectionchange', () => {
-    window.clearTimeout(selectionTimer);
-    selectionTimer = window.setTimeout(positionTrigger, usesMobileSelection ? 350 : 0);
+    queueTriggerPosition(usesMobileSelection ? 500 : 0);
   });
-  window.addEventListener('scroll', () => { trigger.hidden = true; }, { passive: true });
+  if (usesMobileSelection) {
+    prose.addEventListener('touchend', () => {
+      queueTriggerPosition(150);
+      window.setTimeout(positionTrigger, 700);
+    }, { passive: true });
+  }
+  window.addEventListener('scroll', () => {
+    if (!usesMobileSelection) trigger.hidden = true;
+  }, { passive: true });
   trigger.addEventListener('click', async () => {
     trigger.hidden = true;
     if (status) status.textContent = '';
