@@ -17,6 +17,7 @@ const books = (await getCollection('books', ({ data }) => !data.draft))
 const authors = await getCollection('authors');
 const authorNames = new Map(authors.map((author) => [author.id, author.data.name]));
 const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === import.meta.env.BASE_URL;
 const authorsHref = `${import.meta.env.BASE_URL}authors/`;
 const tagsHref = `${import.meta.env.BASE_URL}tags/`;
 
@@ -131,6 +132,17 @@ const searchableText = (book: (typeof books)[number]) => [
       </aside>
       <main class="site-main"><slot /></main>
     </div>
+    {isHomePage && (
+      <aside class="continue-reading" id="continue-reading" aria-label="ادامهٔ مطالعه" hidden>
+        <div class="continue-reading-copy">
+          <span>ادامهٔ مطالعه</span>
+          <strong id="continue-reading-title"></strong>
+          <small id="continue-reading-progress"></small>
+        </div>
+        <a class="continue-reading-link" id="continue-reading-link" href="#">ادامه بده</a>
+        <button class="continue-reading-close" id="continue-reading-close" type="button" aria-label="بستن پیشنهاد ادامهٔ مطالعه">×</button>
+      </aside>
+    )}
     <footer class="site-footer">
       <div class="container">با علاقه به کتاب و یادگیری ساخته شده است.</div>
     </footer>
@@ -151,6 +163,71 @@ const searchableText = (book: (typeof books)[number]) => [
       const results = document.querySelector<HTMLElement>('#search-results');
       const resultList = document.querySelector<HTMLUListElement>('#search-result-list');
       const status = document.querySelector<HTMLElement>('#search-status');
+      const continueReading = document.querySelector<HTMLElement>('#continue-reading');
+      const continueTitle = document.querySelector<HTMLElement>('#continue-reading-title');
+      const continueProgress = document.querySelector<HTMLElement>('#continue-reading-progress');
+      const continueLink = document.querySelector<HTMLAnchorElement>('#continue-reading-link');
+      const continueClose = document.querySelector<HTMLButtonElement>('#continue-reading-close');
+
+      type ReadingProgress = {
+        id?: string;
+        title?: string;
+        url?: string;
+        scrollY?: number;
+        progress?: number;
+        updatedAt?: number;
+      };
+
+      const readingStorageKey = 'nickel:last-read-book';
+      const currentBookId = document.querySelector<HTMLElement>('[data-book-page]')?.dataset.bookId;
+
+      try {
+        const saved = localStorage.getItem(readingStorageKey);
+        const reading = saved ? JSON.parse(saved) as ReadingProgress : null;
+        if (reading && typeof reading.progress === 'number' && reading.progress >= 0.98) {
+          localStorage.removeItem(readingStorageKey);
+        } else if (reading?.id && reading.title && reading.url && reading.id !== currentBookId && continueReading && continueTitle && continueLink) {
+          continueTitle.textContent = reading.title;
+          continueLink.href = reading.url;
+          if (continueProgress && typeof reading.progress === 'number') {
+            const percent = Math.round(reading.progress * 100);
+            continueProgress.textContent = percent > 2 ? `${percent.toLocaleString('fa-IR')}٪ خوانده شده` : 'از ابتدای کتاب';
+          }
+          continueReading.hidden = false;
+        }
+      } catch {
+        localStorage.removeItem(readingStorageKey);
+      }
+
+      continueLink?.addEventListener('click', () => {
+        const saved = localStorage.getItem(readingStorageKey);
+        if (!saved) return;
+        try {
+          const reading = JSON.parse(saved) as ReadingProgress;
+          sessionStorage.setItem('nickel:restore-scroll', JSON.stringify({ id: reading.id, scrollY: reading.scrollY ?? 0 }));
+        } catch {
+          localStorage.removeItem(readingStorageKey);
+        }
+      });
+
+      continueClose?.addEventListener('click', () => {
+        localStorage.removeItem(readingStorageKey);
+        sessionStorage.removeItem('nickel:restore-scroll');
+        if (continueReading) continueReading.remove();
+      });
+
+      const pendingRestore = sessionStorage.getItem('nickel:restore-scroll');
+      if (pendingRestore && currentBookId) {
+        try {
+          const restore = JSON.parse(pendingRestore) as { id?: string; scrollY?: number };
+          if (restore.id === currentBookId) {
+            sessionStorage.removeItem('nickel:restore-scroll');
+            requestAnimationFrame(() => window.scrollTo({ top: restore.scrollY ?? 0, behavior: 'instant' }));
+          }
+        } catch {
+          sessionStorage.removeItem('nickel:restore-scroll');
+        }
+      }
 
       const updateThemeButton = () => {
         if (!themeToggle) return;

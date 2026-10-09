@@ -18,7 +18,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
 ---
 
 <BaseLayout title={`${book.data.title} | نیکل`} description={book.data.description}>
-  <article class="article-shell">
+  <article class="article-shell" data-book-page data-book-id={book.id} data-book-title={book.data.title}>
     <a class="back-link" href={import.meta.env.BASE_URL}>
       <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m10 7 5 5-5 5"></path></svg></span>
       <span>بازگشت به همهٔ خلاصه‌ها</span>
@@ -55,6 +55,36 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
 
   <script>
     const shareButton = document.querySelector<HTMLButtonElement>('.share-button');
+    const bookPage = document.querySelector<HTMLElement>('[data-book-page]');
+
+    if (bookPage) {
+      const storageKey = 'nickel:last-read-book';
+      let saveTimer: number | undefined;
+
+      const saveReadingProgress = () => {
+        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = documentHeight > 0 ? Math.min(1, window.scrollY / documentHeight) : 0;
+        if (progress >= 0.98) {
+          localStorage.removeItem(storageKey);
+          return;
+        }
+        localStorage.setItem(storageKey, JSON.stringify({
+          id: bookPage.dataset.bookId,
+          title: bookPage.dataset.bookTitle,
+          url: window.location.pathname + window.location.search,
+          scrollY: window.scrollY,
+          progress,
+          updatedAt: Date.now(),
+        }));
+      };
+
+      saveReadingProgress();
+      window.addEventListener('scroll', () => {
+        window.clearTimeout(saveTimer);
+        saveTimer = window.setTimeout(saveReadingProgress, 150);
+      }, { passive: true });
+      window.addEventListener('pagehide', saveReadingProgress);
+    }
 
     shareButton?.addEventListener('click', async () => {
       const title = shareButton.dataset.shareTitle ?? document.title;

@@ -190,6 +190,17 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .prose blockquote { margin: 2rem 0; padding: 1.2rem 1.5rem; border-right: 4px solid var(--gold); background: var(--quote-bg); border-radius: 12px 0 0 12px; font-weight: 600; }
 .prose blockquote p { margin: 0; }
 .prose li { margin-bottom: .5rem; }
+.continue-reading { position: fixed; z-index: 20; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: .85rem; width: min(430px, calc(100% - 2rem)); padding: .9rem; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); box-shadow: var(--shadow); }
+.continue-reading[hidden] { display: none; }
+.continue-reading-copy { display: grid; min-width: 0; line-height: 1.5; }
+.continue-reading-copy span { color: var(--green); font-size: .72rem; font-weight: 800; }
+.continue-reading-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .94rem; }
+.continue-reading-copy small { color: var(--muted); font-size: .7rem; }
+.continue-reading-link { flex: 0 0 auto; padding: .48rem .75rem; border-radius: 10px; color: #fff; background: var(--green); font-size: .78rem; font-weight: 800; transition: opacity .2s ease, transform .2s ease; }
+.continue-reading-link:hover { opacity: .88; transform: translateY(-1px); }
+.continue-reading-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.35rem; line-height: 1; }
+.continue-reading-close:hover { color: var(--ink); background: var(--green-soft); }
+.continue-reading :is(a, button):focus-visible { outline: 3px solid color-mix(in srgb, var(--green) 25%, transparent); outline-offset: 2px; }
 .site-footer { padding: 2rem 0; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: .85rem; }
 
 @media (max-width: 800px) {
@@ -220,4 +231,6 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
   .tags-index { grid-template-columns: 1fr; }
   .section-heading { display: block; }
   .article-meta { display: grid; }
+  .continue-reading { gap: .6rem; padding: .75rem; }
+  .continue-reading-link { padding-inline: .65rem; }
 }
