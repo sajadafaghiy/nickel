@@ -13,12 +13,13 @@ const { book } = Astro.props;
 const { Content } = await render(book);
 const authors = await getCollection('authors');
 const authorNames = new Map(authors.map((author) => [author.id, author.data.name]));
+const bookAuthorNames = book.data.authors.map((author) => authorNames.get(author.id) ?? author.id).join(' و ');
 const formatter = new Intl.DateTimeFormat('fa-IR', { day: 'numeric', month: 'long', year: 'numeric' });
 const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURIComponent(tag)}/`;
 ---
 
 <BaseLayout title={`${book.data.title} | نیکل`} description={book.data.description}>
-  <article class="article-shell" data-book-page data-book-id={book.id} data-book-title={book.data.title}>
+  <article class="article-shell" data-book-page data-book-id={book.id} data-book-title={book.data.title} data-book-authors={bookAuthorNames}>
     <a class="back-link" href={import.meta.env.BASE_URL}>
       <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m10 7 5 5-5 5"></path></svg></span>
       <span>بازگشت به همهٔ خلاصه‌ها</span>
@@ -53,9 +54,33 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
     </footer>
   </article>
 
+  <button class="selection-share-trigger" type="button" hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4m0 0L8 8m4-4 4 4M5 13v6h14v-6"></path></svg>
+    <span>اشتراک متن</span>
+  </button>
+
+  <dialog class="quote-share-dialog" aria-labelledby="quote-share-title">
+    <header class="quote-share-header">
+      <div><strong id="quote-share-title">اشتراک متن</strong><small>تصویر مربعی آمادهٔ انتشار است.</small></div>
+      <button class="quote-share-close" type="button" aria-label="بستن">×</button>
+    </header>
+    <canvas class="quote-share-canvas" width="1080" height="1080" aria-label="پیش‌نمایش تصویر متن انتخاب‌شده"></canvas>
+    <p class="quote-share-status" role="status" aria-live="polite"></p>
+    <footer class="quote-share-actions">
+      <button class="quote-share-primary" type="button">اشتراک تصویر</button>
+      <button class="quote-share-download" type="button">دانلود PNG</button>
+    </footer>
+  </dialog>
+
   <script>
     const shareButton = document.querySelector<HTMLButtonElement>('.share-button');
     const bookPage = document.querySelector<HTMLElement>('[data-book-page]');
+    const prose = document.querySelector<HTMLElement>('.prose');
+    const selectionTrigger = document.querySelector<HTMLButtonElement>('.selection-share-trigger');
+    const quoteDialog = document.querySelector<HTMLDialogElement>('.quote-share-dialog');
+    const quoteCanvas = document.querySelector<HTMLCanvasElement>('.quote-share-canvas');
+    const quoteStatus = document.querySelector<HTMLElement>('.quote-share-status');
+    let selectedQuote = '';
 
     if (bookPage) {
       const storageKey = 'nickel:last-read-book';
@@ -99,6 +124,123 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
         }
       } catch (error) {
         if (error instanceof DOMException && error.name === 'AbortError') return;
+      }
+    });
+
+    const selectedProseText = () => {
+      const selection = window.getSelection();
+      if (!selection || selection.isCollapsed || !selection.rangeCount || !prose) return '';
+      const range = selection.getRangeAt(0);
+      if (!prose.contains(range.commonAncestorContainer)) return '';
+      return selection.toString().replace(/\s+/g, ' ').trim().slice(0, 700);
+    };
+
+    const positionSelectionButton = () => {
+      const text = selectedProseText();
+      if (!selectionTrigger || text.length < 3) {
+        if (selectionTrigger) selectionTrigger.hidden = true;
+        return;
+      }
+      const rect = window.getSelection()?.getRangeAt(0).getBoundingClientRect();
+      if (!rect) return;
+      selectedQuote = text;
+      selectionTrigger.hidden = false;
+      const width = selectionTrigger.offsetWidth;
+      selectionTrigger.style.left = `${Math.max(8, Math.min(innerWidth - width - 8, rect.left + rect.width / 2 - width / 2))}px`;
+      selectionTrigger.style.top = `${Math.max(8, rect.top - selectionTrigger.offsetHeight - 10)}px`;
+    };
+
+    const wrapQuote = (context: CanvasRenderingContext2D, text: string, maxWidth: number, maxHeight: number) => {
+      for (let size = 64; size >= 34; size -= 2) {
+        context.font = `600 ${size}px "Vazirmatn Variable", Vazirmatn, Tahoma, sans-serif`;
+        const lines: string[] = [];
+        let line = '';
+        for (const word of text.split(' ')) {
+          const candidate = line ? `${line} ${word}` : word;
+          if (line && context.measureText(candidate).width > maxWidth) {
+            lines.push(line);
+            line = word;
+          } else line = candidate;
+        }
+        if (line) lines.push(line);
+        const lineHeight = size * 1.7;
+        if (lines.length * lineHeight <= maxHeight) return { lines, size, lineHeight };
+      }
+      return null;
+    };
+
+    const drawQuoteCard = async () => {
+      if (!quoteCanvas || !bookPage) return;
+      await document.fonts.ready;
+      const context = quoteCanvas.getContext('2d');
+      if (!context) return;
+      context.fillStyle = '#f7f0e2';
+      context.fillRect(0, 0, 1080, 1080);
+      context.fillStyle = '#174c3c';
+      context.beginPath();
+      context.roundRect(72, 72, 936, 936, 42);
+      context.fill();
+      context.direction = 'rtl';
+      context.textBaseline = 'middle';
+      context.textAlign = 'right';
+      context.fillStyle = '#d9b95f';
+      context.font = '700 82px "Vazirmatn Variable", Vazirmatn, Tahoma, sans-serif';
+      context.fillText('“', 930, 170);
+
+      const fitted = wrapQuote(context, selectedQuote, 800, 610);
+      if (fitted) {
+        context.fillStyle = '#fffdf8';
+        context.font = `600 ${fitted.size}px "Vazirmatn Variable", Vazirmatn, Tahoma, sans-serif`;
+        let y = 470 - (fitted.lines.length * fitted.lineHeight) / 2 + fitted.lineHeight / 2;
+        for (const line of fitted.lines) {
+          context.fillText(line, 930, y);
+          y += fitted.lineHeight;
+        }
+      }
+
+      context.fillStyle = '#d9b95f';
+      context.fillRect(150, 850, 780, 3);
+      context.textAlign = 'center';
+      context.fillStyle = '#fffdf8';
+      context.font = '700 38px "Vazirmatn Variable", Vazirmatn, Tahoma, sans-serif';
+      context.fillText(bookPage.dataset.bookTitle ?? '', 540, 905, 780);
+      context.fillStyle = '#cbd9d2';
+      context.font = '500 27px "Vazirmatn Variable", Vazirmatn, Tahoma, sans-serif';
+      context.fillText(bookPage.dataset.bookAuthors ?? '', 540, 955, 780);
+    };
+
+    const imageBlob = () => new Promise<Blob | null>((resolve) => quoteCanvas?.toBlob(resolve, 'image/png'));
+    const downloadImage = async () => {
+      const blob = await imageBlob();
+      if (!blob || !bookPage) return;
+      const url = URL.createObjectURL(blob);
+      const link = Object.assign(document.createElement('a'), { href: url, download: `${bookPage.dataset.bookId ?? 'quote'}.png` });
+      link.click();
+      URL.revokeObjectURL(url);
+      if (quoteStatus) quoteStatus.textContent = 'تصویر دانلود شد.';
+    };
+
+    document.addEventListener('selectionchange', () => setTimeout(positionSelectionButton));
+    window.addEventListener('scroll', () => { if (selectionTrigger) selectionTrigger.hidden = true; }, { passive: true });
+    selectionTrigger?.addEventListener('click', async () => {
+      selectionTrigger.hidden = true;
+      if (quoteStatus) quoteStatus.textContent = '';
+      quoteDialog?.showModal();
+      await drawQuoteCard();
+    });
+    document.querySelector<HTMLButtonElement>('.quote-share-close')?.addEventListener('click', () => quoteDialog?.close());
+    quoteDialog?.addEventListener('click', (event) => { if (event.target === quoteDialog) quoteDialog.close(); });
+    document.querySelector<HTMLButtonElement>('.quote-share-download')?.addEventListener('click', downloadImage);
+    document.querySelector<HTMLButtonElement>('.quote-share-primary')?.addEventListener('click', async () => {
+      const blob = await imageBlob();
+      if (!blob || !bookPage) return;
+      const file = new File([blob], `${bookPage.dataset.bookId ?? 'quote'}.png`, { type: 'image/png' });
+      try {
+        if (navigator.share && navigator.canShare?.({ files: [file] })) {
+          await navigator.share({ title: bookPage.dataset.bookTitle, files: [file] });
+        } else await downloadImage();
+      } catch (error) {
+        if (!(error instanceof DOMException && error.name === 'AbortError') && quoteStatus) quoteStatus.textContent = 'اشتراک انجام نشد؛ تصویر را دانلود کنید.';
       }
     });
 
