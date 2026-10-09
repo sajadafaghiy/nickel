@@ -193,7 +193,9 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .selection-share-trigger { position: fixed; z-index: 30; display: flex; align-items: center; gap: .4rem; padding: .52rem .75rem; border: 0; border-radius: 10px; color: #fff; background: var(--green); box-shadow: 0 8px 24px rgba(0,0,0,.2); cursor: pointer; font-size: .78rem; font-weight: 800; }
 .selection-share-trigger[hidden] { display: none; }
 .selection-share-trigger svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-@media (hover: none), (pointer: coarse) { .selection-share-trigger { display: none; } }
+@media (hover: none), (pointer: coarse) {
+  .selection-share-trigger--mobile { inset: auto 50% max(1rem, env(safe-area-inset-bottom)) auto; min-height: 44px; padding-inline: 1rem; transform: translateX(50%); }
+}
 .quote-share-dialog { width: min(570px, calc(100% - 2rem)); padding: 1rem; border: 1px solid var(--line); border-radius: 22px; color: var(--ink); background: var(--surface); box-shadow: var(--shadow); }
 .quote-share-dialog::backdrop { background: rgba(8,16,12,.7); backdrop-filter: blur(5px); }
 .quote-share-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }

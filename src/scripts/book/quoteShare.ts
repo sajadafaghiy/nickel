@@ -51,8 +51,9 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
   const dialog = document.querySelector<HTMLDialogElement>('.quote-share-dialog');
   const canvas = document.querySelector<HTMLCanvasElement>('.quote-share-canvas');
   const status = document.querySelector<HTMLElement>('.quote-share-status');
-  const supportsCustomSelectionTrigger = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const usesMobileSelection = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   let selectedQuote = '';
+  let selectionTimer: number | undefined;
 
   if (!prose || !trigger || !dialog || !canvas) return;
 
@@ -73,6 +74,12 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
     if (!rect) return;
     selectedQuote = text;
     trigger.hidden = false;
+    trigger.classList.toggle('selection-share-trigger--mobile', usesMobileSelection);
+    if (usesMobileSelection) {
+      trigger.style.removeProperty('left');
+      trigger.style.removeProperty('top');
+      return;
+    }
     const width = trigger.offsetWidth;
     trigger.style.left = `${Math.max(8, Math.min(innerWidth - width - 8, rect.left + rect.width / 2 - width / 2))}px`;
     trigger.style.top = `${Math.max(8, rect.top - trigger.offsetHeight - 10)}px`;
@@ -128,9 +135,10 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
     if (status) status.textContent = 'تصویر دانلود شد.';
   };
 
-  if (supportsCustomSelectionTrigger) {
-    document.addEventListener('selectionchange', () => setTimeout(positionTrigger));
-  }
+  document.addEventListener('selectionchange', () => {
+    window.clearTimeout(selectionTimer);
+    selectionTimer = window.setTimeout(positionTrigger, usesMobileSelection ? 350 : 0);
+  });
   window.addEventListener('scroll', () => { trigger.hidden = true; }, { passive: true });
   trigger.addEventListener('click', async () => {
     trigger.hidden = true;
