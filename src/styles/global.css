@@ -198,8 +198,8 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .quote-share-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
 .quote-share-header div { display: grid; }
 .quote-share-header small, .quote-share-status { color: var(--muted); font-size: .78rem; }
-.quote-share-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.35rem; line-height: 1; }
-.quote-share-close:hover { color: var(--ink); background: var(--green-soft); }
+.quote-share-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.35rem; line-height: 1; appearance: none; -webkit-tap-highlight-color: transparent; transition: color .2s ease, background .2s ease; }
+.quote-share-close:is(:hover, :active) { color: var(--green); background: var(--green-soft); }
 .quote-share-canvas { display: block; width: 100%; height: auto; border-radius: 14px; }
 .quote-share-status { min-height: 1.5em; margin: .65rem 0 .25rem; }
 .quote-share-actions { display: flex; gap: .65rem; }
@@ -207,6 +207,7 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .quote-share-primary { color: #fff; background: var(--green); }
 .quote-share-download { color: var(--green); background: transparent; }
 .quote-share-dialog button:focus-visible, .selection-share-trigger:focus-visible { outline: 3px solid color-mix(in srgb, var(--green) 25%, transparent); outline-offset: 2px; }
+.quote-share-close:focus-visible { color: var(--green); background: var(--green-soft); outline-color: var(--green); }
 .continue-reading { position: fixed; z-index: 20; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: .85rem; width: min(430px, calc(100% - 2rem)); padding: .9rem; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); box-shadow: var(--shadow); }
 .continue-reading[hidden] { display: none; }
 .continue-reading-copy { display: grid; min-width: 0; line-height: 1.5; }
@@ -215,8 +216,8 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .continue-reading-copy small { color: var(--muted); font-size: .7rem; }
 .continue-reading-link { flex: 0 0 auto; padding: .48rem .75rem; border-radius: 10px; color: #fff; background: var(--green); font-size: .78rem; font-weight: 800; transition: opacity .2s ease, transform .2s ease; }
 .continue-reading-link:hover { opacity: .88; transform: translateY(-1px); }
-.continue-reading-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.35rem; line-height: 1; }
-.continue-reading-close:hover { color: var(--ink); background: var(--green-soft); }
+.continue-reading-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.35rem; line-height: 1; appearance: none; -webkit-tap-highlight-color: transparent; transition: color .2s ease, background .2s ease; }
+.continue-reading-close:is(:hover, :active, :focus-visible) { color: var(--green); background: var(--green-soft); }
 .continue-reading :is(a, button):focus-visible { outline: 3px solid color-mix(in srgb, var(--green) 25%, transparent); outline-offset: 2px; }
 .site-footer { padding: 2rem 0; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: .85rem; }
 
