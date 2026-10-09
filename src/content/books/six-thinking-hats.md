@@ -1,5 +1,5 @@
 ---
-title: «شش کلاه تفکر»
+title: شش کلاه تفکر
 emoji: 🎩
 authors:
   - edward-de-bono

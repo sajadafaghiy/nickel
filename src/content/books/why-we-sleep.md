@@ -1,5 +1,5 @@
 ---
-title: «چرا می‌خوابیم؟»
+title: چرا می‌خوابیم؟
 emoji: 💤
 authors:
   - matthew-walker

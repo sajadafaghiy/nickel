@@ -1,5 +1,5 @@
 ---
-title: «مدیریت خود»
+title: مدیریت خود
 emoji: 👨🏻
 authors:
   - peter-drucker

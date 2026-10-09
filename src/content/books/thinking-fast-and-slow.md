@@ -1,5 +1,5 @@
 ---
-title: «تفکر، سریع و آهسته»
+title: تفکر، سریع و آهسته
 emoji: 💭
 authors:
   - daniel-kahneman

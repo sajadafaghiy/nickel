@@ -1,5 +1,5 @@
 ---
-title: «پنج دشمن عملکرد تیمی»
+title: پنج دشمن عملکرد تیمی
 emoji: 😈
 authors:
   - patrick-lencioni

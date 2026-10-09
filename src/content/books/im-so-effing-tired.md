@@ -1,5 +1,5 @@
 ---
-title: «چرا این‌قدر خسته‌ام؟»
+title: چرا این‌قدر خسته‌ام؟
 emoji: 🥱
 authors:
   - amy-shah

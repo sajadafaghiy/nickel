@@ -1,5 +1,5 @@
 ---
-title: «کِی؟»
+title: کِی؟
 emoji: ⌚
 authors:
   - daniel-h-pink

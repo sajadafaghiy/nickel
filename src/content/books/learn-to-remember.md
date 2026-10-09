@@ -1,5 +1,5 @@
 ---
-title: «چگونه به یاد بیاوریم»
+title: چگونه به یاد بیاوریم
 emoji: 📌
 authors:
   - dominic-obrien

@@ -1,5 +1,5 @@
 ---
-title: «از غروب تا سپیده‌دم»
+title: از غروب تا سپیده‌دم
 emoji: ✨
 authors:
   - anne-lamott

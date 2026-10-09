@@ -1,5 +1,5 @@
 ---
-title: «از صفر به یک»
+title: از صفر به یک
 emoji: 1️⃣
 authors:
   - peter-thiel

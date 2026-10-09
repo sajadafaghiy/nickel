@@ -1,5 +1,5 @@
 ---
-title: «دوباره فکر کن»
+title: دوباره فکر کن
 emoji: 💡
 authors:
   - adam-grant

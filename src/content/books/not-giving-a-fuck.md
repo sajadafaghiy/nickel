@@ -1,5 +1,5 @@
 ---
-title: «هنر ظریف بی‌خیالی»
+title: هنر ظریف بی‌خیالی
 emoji: 🥚
 authors:
   - mark-manson

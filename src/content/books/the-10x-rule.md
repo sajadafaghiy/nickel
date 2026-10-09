@@ -1,5 +1,5 @@
 ---
-title: «قانون ۱۰ برابر»
+title: قانون ۱۰ برابر
 emoji: 🔟
 authors:
   - grant-cardone

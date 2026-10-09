@@ -1,5 +1,5 @@
 ---
-title: «رهبری»
+title: رهبری
 emoji: 👑
 authors:
   - alex-ferguson

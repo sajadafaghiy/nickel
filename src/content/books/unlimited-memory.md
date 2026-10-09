@@ -1,5 +1,5 @@
 ---
-title: «حافظهٔ نامحدود»
+title: حافظهٔ نامحدود
 emoji: 🧠
 authors:
   - kevin-horsley

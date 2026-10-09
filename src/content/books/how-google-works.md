@@ -1,5 +1,5 @@
 ---
-title: «گوگل چگونه کار می‌کند؟»
+title: گوگل چگونه کار می‌کند؟
 emoji: 🌐
 authors:
   - eric-schmidt

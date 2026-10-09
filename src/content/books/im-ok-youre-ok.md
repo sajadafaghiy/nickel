@@ -1,5 +1,5 @@
 ---
-title: «وضعیت آخر»
+title: وضعیت آخر
 emoji: 🤝
 authors:
   - thomas-harris

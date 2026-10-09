@@ -1,5 +1,5 @@
 ---
-title: «گلولهٔ برفی»
+title: گلولهٔ برفی
 emoji: ❄️
 authors:
   - alice-schroeder

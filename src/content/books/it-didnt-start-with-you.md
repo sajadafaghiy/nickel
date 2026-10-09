@@ -1,5 +1,5 @@
 ---
-title: «با تو آغاز نشده است»
+title: با تو آغاز نشده است
 emoji: 🧬
 authors:
   - mark-wolynn

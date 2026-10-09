@@ -1,5 +1,5 @@
 ---
-title: «آیین دوست‌یابی»
+title: آیین دوست‌یابی
 emoji: 👫
 authors:
   - dale-carnegie

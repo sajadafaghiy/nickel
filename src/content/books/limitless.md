@@ -1,5 +1,5 @@
 ---
-title: «بی‌حد و مرز»
+title: بی‌حد و مرز
 emoji: ♾️
 authors:
   - jim-kwik

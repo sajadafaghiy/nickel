@@ -1,5 +1,5 @@
 ---
-title: «عادت‌های اتمی»
+title: عادت‌های اتمی
 emoji: ⚛️
 authors:
   - james-clear

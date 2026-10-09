@@ -56,7 +56,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
                 <span class="featured-badge">منتخب</span>
                 <time class="date" datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
               </div>
-              <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} {book.data.title}</a></h3>
+              <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} «{book.data.title}»</a></h3>
               <span class="author">
                 {book.data.authors.map((author, index) => (
                   <>{index > 0 && ' و '}<a href={`${import.meta.env.BASE_URL}authors/${author.id}/`}>{authorNames.get(author.id) ?? author.id}</a></>
@@ -93,7 +93,7 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
             <div class="card-top">
               <time class="date" datetime={book.data.publishedAt.toISOString()}>{formatter.format(book.data.publishedAt)}</time>
             </div>
-            <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} {book.data.title}</a></h3>
+            <h3><a href={`${import.meta.env.BASE_URL}books/${book.id}/`}>{book.data.emoji} «{book.data.title}»</a></h3>
             <span class="author">
               {book.data.authors.map((author, index) => (
                 <>{index > 0 && ' و '}<a href={`${import.meta.env.BASE_URL}authors/${author.id}/`}>{authorNames.get(author.id) ?? author.id}</a></>

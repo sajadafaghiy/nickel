@@ -1,5 +1,5 @@
 ---
-title: «ذهن حواس‌جمع»
+title: ذهن حواس‌جمع
 emoji: 🔎
 authors:
   - nir-eyal

@@ -1,5 +1,5 @@
 ---
-title: «کار عمیق»
+title: کار عمیق
 emoji: 🎯
 authors:
   - cal-newport

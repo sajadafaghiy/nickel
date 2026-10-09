@@ -1,5 +1,5 @@
 ---
-title: «دربارهٔ آزادی»
+title: دربارهٔ آزادی
 emoji: 🕊️
 authors:
   - john-stuart-mill

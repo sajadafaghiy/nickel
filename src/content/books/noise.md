@@ -1,5 +1,5 @@
 ---
-title: «نویز»
+title: نویز
 emoji: ⚖️
 authors:
   - daniel-kahneman

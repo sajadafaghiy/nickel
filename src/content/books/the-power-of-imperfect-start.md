@@ -1,5 +1,5 @@
 ---
-title: «قدرت شروع ناقص»
+title: قدرت شروع ناقص
 emoji: 🏁
 authors:
   - james-clear

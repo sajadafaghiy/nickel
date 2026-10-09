@@ -1,5 +1,5 @@
 ---
-title: «قانون هشتاد بیست»
+title: قانون هشتاد بیست
 emoji: 🎯
 authors:
   - richard-koch

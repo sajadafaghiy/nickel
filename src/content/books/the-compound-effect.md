@@ -1,5 +1,5 @@
 ---
-title: «اثر مرکب»
+title: اثر مرکب
 emoji: 🌳
 authors:
   - darren-hardy

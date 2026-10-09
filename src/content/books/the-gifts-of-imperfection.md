@@ -1,5 +1,5 @@
 ---
-title: «موهبت کامل نبودن»
+title: موهبت کامل نبودن
 emoji: 🪴
 authors:
   - brene-brown

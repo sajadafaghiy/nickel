@@ -1,5 +1,5 @@
 ---
-title: «این‌قدر فکر و خیال نکن»
+title: این‌قدر فکر و خیال نکن
 emoji: 🌀
 authors:
   - anne-bogel

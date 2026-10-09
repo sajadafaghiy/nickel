@@ -1,5 +1,5 @@
 ---
-title: «بازیکن تیمی ایده‌آل»
+title: بازیکن تیمی ایده‌آل
 emoji: ⛹🏻‍♂️
 authors:
   - patrick-lencioni

@@ -1,5 +1,5 @@
 ---
-title: «از خوب به عالی»
+title: از خوب به عالی
 emoji: 📈
 authors:
   - jim-collins

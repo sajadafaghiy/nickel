@@ -1,5 +1,5 @@
 ---
-title: «شجاعت دوست‌داشتنی نبودن»
+title: شجاعت دوست‌داشتنی نبودن
 emoji: 👎🏻
 authors:
   - ichiro-kishimi

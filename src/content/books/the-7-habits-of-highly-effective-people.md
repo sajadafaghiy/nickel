@@ -1,5 +1,5 @@
 ---
-title: «هفت عادت مردمان مؤثر»
+title: هفت عادت مردمان مؤثر
 emoji: 🌱
 authors:
   - stephen-covey

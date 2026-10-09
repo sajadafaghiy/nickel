@@ -1,5 +1,5 @@
 ---
-title: «نشخوار ذهنی»
+title: نشخوار ذهنی
 emoji: 🤯
 authors:
   - ethan-kross

@@ -1,5 +1,5 @@
 ---
-title: «تفکر نامطمئن»
+title: تفکر نامطمئن
 emoji: 🎲
 authors:
   - annie-duke

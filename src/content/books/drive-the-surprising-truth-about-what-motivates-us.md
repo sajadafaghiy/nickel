@@ -1,5 +1,5 @@
 ---
-title: «انگیزه»
+title: انگیزه
 emoji: ✊
 authors:
   - daniel-pink

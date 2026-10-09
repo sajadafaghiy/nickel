@@ -1,5 +1,5 @@
 ---
-title: «خطای دکارت»
+title: خطای دکارت
 emoji: 🧠
 authors:
   - antonio-damasio

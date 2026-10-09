@@ -1,5 +1,5 @@
 ---
-title: «هنر شفاف اندیشیدن»
+title: هنر شفاف اندیشیدن
 emoji: 🗯️
 authors:
   - rolf-dobelli
