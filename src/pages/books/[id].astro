@@ -58,13 +58,14 @@ const tagHref = (tag: string) => `${import.meta.env.BASE_URL}tags/${encodeURICom
 
     shareButton?.addEventListener('click', async () => {
       const title = shareButton.dataset.shareTitle ?? document.title;
-      const shareData = { title, text: `خلاصهٔ کتاب «${title}»`, url: window.location.href };
+      const shareText = `خلاصهٔ کتاب «${title}»\n${window.location.href}`;
+      const shareData = { title, text: shareText };
 
       try {
         if (navigator.share) {
           await navigator.share(shareData);
         } else {
-          await navigator.clipboard.writeText(window.location.href);
+          await navigator.clipboard.writeText(shareText);
         }
       } catch (error) {
         if (error instanceof DOMException && error.name === 'AbortError') return;
