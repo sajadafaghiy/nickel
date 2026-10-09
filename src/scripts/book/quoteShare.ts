@@ -51,6 +51,7 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
   const dialog = document.querySelector<HTMLDialogElement>('.quote-share-dialog');
   const canvas = document.querySelector<HTMLCanvasElement>('.quote-share-canvas');
   const status = document.querySelector<HTMLElement>('.quote-share-status');
+  const supportsCustomSelectionTrigger = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   let selectedQuote = '';
 
   if (!prose || !trigger || !dialog || !canvas) return;
@@ -127,7 +128,9 @@ export const initializeQuoteShare = (bookPage: HTMLElement) => {
     if (status) status.textContent = 'تصویر دانلود شد.';
   };
 
-  document.addEventListener('selectionchange', () => setTimeout(positionTrigger));
+  if (supportsCustomSelectionTrigger) {
+    document.addEventListener('selectionchange', () => setTimeout(positionTrigger));
+  }
   window.addEventListener('scroll', () => { trigger.hidden = true; }, { passive: true });
   trigger.addEventListener('click', async () => {
     trigger.hidden = true;
