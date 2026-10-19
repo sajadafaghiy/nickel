@@ -20,6 +20,10 @@ const currentPath = Astro.url.pathname;
 const isHomePage = currentPath === import.meta.env.BASE_URL;
 const authorsHref = `${import.meta.env.BASE_URL}authors/`;
 const tagsHref = `${import.meta.env.BASE_URL}tags/`;
+const configuredGaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
+const gaMeasurementId = /^G-[A-Z0-9]+$/.test(configuredGaMeasurementId ?? '')
+  ? configuredGaMeasurementId
+  : undefined;
 
 const searchableText = (book: (typeof books)[number]) => [
   book.data.title,
@@ -56,6 +60,17 @@ const searchableText = (book: (typeof books)[number]) => [
         document.documentElement.dataset.theme = theme;
       })();
     </script>
+    {gaMeasurementId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', gaMeasurementId, { anonymize_ip: true });
+        </script>
+      </>
+    )}
     <title>{title}</title>
   </head>
   <body>
