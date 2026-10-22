@@ -175,7 +175,8 @@ h1 { margin: .8rem 0 1.2rem; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height:
 .back-link:hover { color: var(--green); }
 .back-link:hover .link-chevron { transform: translateX(2px); }
 .article-header { padding-bottom: 2.4rem; border-bottom: 1px solid var(--line); }
-.article-header h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); }
+.article-header h1 { display: flex; align-items: baseline; gap: .3em; font-size: clamp(2.3rem, 6vw, 4.2rem); }
+.article-title-emoji { flex: 0 0 auto; font-size: .82em; }
 .article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.5rem; color: var(--muted); font-size: .9rem; }
 .article-description { margin: 1.4rem 0 1rem; color: var(--muted); }
 .share-button { display: grid; place-items: center; flex: 0 0 auto; width: 42px; height: 42px; padding: 0; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--surface); cursor: pointer; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
