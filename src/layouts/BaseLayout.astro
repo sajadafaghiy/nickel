@@ -74,6 +74,9 @@ const searchableText = (book: (typeof books)[number]) => [
     <title>{title}</title>
   </head>
   <body>
+    <div class="navigation-progress" id="navigation-progress" role="progressbar" aria-label="در حال بارگذاری صفحه" aria-valuemin="0" aria-valuemax="100" aria-hidden="true">
+      <span></span>
+    </div>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href={import.meta.env.BASE_URL} aria-label="صفحهٔ اصلی نیکل">
@@ -169,6 +172,49 @@ const searchableText = (book: (typeof books)[number]) => [
           });
         });
       }
+
+      const navigationProgress = document.querySelector<HTMLElement>('#navigation-progress');
+      const progressBar = navigationProgress?.querySelector<HTMLElement>('span');
+      let progressTimer: number | undefined;
+
+      const startNavigationProgress = () => {
+        if (!navigationProgress || !progressBar || navigationProgress.classList.contains('is-loading')) return;
+        navigationProgress.classList.add('is-loading');
+        navigationProgress.setAttribute('aria-hidden', 'false');
+        navigationProgress.setAttribute('aria-valuenow', '15');
+        progressBar.style.transform = 'scaleX(.15)';
+        progressTimer = window.setInterval(() => {
+          const current = Number(navigationProgress.getAttribute('aria-valuenow') ?? 15);
+          const next = Math.min(90, current + Math.max(1, (90 - current) * .12));
+          navigationProgress.setAttribute('aria-valuenow', String(Math.round(next)));
+          progressBar.style.transform = `scaleX(${next / 100})`;
+        }, 180);
+      };
+
+      const finishNavigationProgress = () => {
+        if (!navigationProgress || !progressBar) return;
+        window.clearInterval(progressTimer);
+        navigationProgress.setAttribute('aria-valuenow', '100');
+        progressBar.style.transform = 'scaleX(1)';
+        navigationProgress.classList.add('is-complete');
+        window.setTimeout(() => {
+          navigationProgress.classList.remove('is-loading', 'is-complete');
+          navigationProgress.setAttribute('aria-hidden', 'true');
+          navigationProgress.removeAttribute('aria-valuenow');
+          progressBar.style.transform = 'scaleX(0)';
+        }, 220);
+      };
+
+      document.addEventListener('click', (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]');
+        if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+        const destination = new URL(link.href, location.href);
+        if (destination.origin === location.origin && destination.href !== location.href && destination.protocol.startsWith('http')) {
+          startNavigationProgress();
+        }
+      });
+      addEventListener('pageshow', finishNavigationProgress);
 
       const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
       const booksMenu = document.querySelector<HTMLDetailsElement>('.books-menu');
